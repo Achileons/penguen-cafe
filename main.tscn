@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cdborpmx8u1vl"]
+
+[ext_resource type="Script" uid="uid://dpa4mg654x7up" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://bffs3t2eoio1x" path="res://penguen.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dg8dhykq61kwy" path="res://fish_station.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c3xm48x61ex4m" path="res://ice_pond.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cqq8rlokdiori" path="res://register.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://c48s37g77wpc4" path="res://upgrade_tile.gd" id="6_7mycd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dt2it"]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt2it"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv2at"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unkm4"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hptgb"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrqh3"]
+size = Vector2(60, 60)
+
+[node name="Main" type="Node2D" unique_id=1549348266]
+script = ExtResource("1_1bvp3")
+
+[node name="Penguen" type="CharacterBody2D" parent="." unique_id=80392613]
+script = ExtResource("1_ig7tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penguen" unique_id=274619530]
+shape = SubResource("CircleShape2D_dt2it")
+
+[node name="FishStation" type="Area2D" parent="." unique_id=1244347267]
+position = Vector2(500, 200)
+script = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishStation" unique_id=1783643114]
+shape = SubResource("RectangleShape2D_dt2it")
+
+[node name="StandPoint" type="Marker2D" parent="FishStation" unique_id=211078117]
+position = Vector2(0, 50)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=864735076]
+offset = Vector2(20, 20)
+transform = Transform2D(1, 0, 0, 1, 20, 20)
+
+[node name="MoneyLabel" type="Label" parent="HUD" unique_id=857355174]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Money : 0
+"
+
+[node name="IcePond" type="Area2D" parent="." unique_id=62494672]
+position = Vector2(250, 100)
+script = ExtResource("4_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IcePond" unique_id=785234482]
+shape = SubResource("RectangleShape2D_qv2at")
+
+[node name="Register" type="Area2D" parent="." unique_id=1248701087]
+position = Vector2(600, 400)
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Register" unique_id=1047211356]
+shape = SubResource("RectangleShape2D_unkm4")
+
+[node name="StandPoint" type="Marker2D" parent="Register" unique_id=1440935478]
+position = Vector2(0, 50)
+
+[node name="CustomerTimer" type="Timer" parent="." unique_id=1600241548]
+wait_time = 5.0
+autostart = true
+
+[node name="AssistantTile" type="Area2D" parent="." unique_id=1269454168]
+position = Vector2(450, 550)
+script = ExtResource("6_7mycd")
+upgrade_name = "Fisher Penguin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AssistantTile" unique_id=73627782]
+shape = SubResource("RectangleShape2D_hptgb")
+
+[node name="CashierTile" type="Area2D" parent="." unique_id=1301087363]
+position = Vector2(750, 500)
+script = ExtResource("6_7mycd")
+upgrade_name = "Cashier Penguin"
+base_cost = 80
+cost_multiplier = 2.0
+max_level = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CashierTile" unique_id=397708502]
+shape = SubResource("RectangleShape2D_vrqh3")

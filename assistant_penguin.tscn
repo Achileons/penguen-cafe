@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bvyax57ygeun8"]
+
+[ext_resource type="Script" uid="uid://d0y1tiu7tnyd8" path="res://assistant_penguin.gd" id="1_ulp7a"]
+
+[node name="AssistantPenguin" type="Node2D" unique_id=345065948]
+script = ExtResource("1_ulp7a")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmm0l3n4wrxrr"]
+
+[ext_resource type="Script" uid="uid://c2ubk14imtksa" path="res://cashier_penguin.gd" id="1_idppt"]
+
+[node name="CashierPenguin" type="Node2D" unique_id=2081815679]
+script = ExtResource("1_idppt")
